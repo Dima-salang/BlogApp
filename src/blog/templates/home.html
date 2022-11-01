@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+</head>
+<body>
+    {% block content %}
+        {% for post in object_list %}
+            <div class="post-entry">
+                <h2><a href="{% url 'blog-post' post.pk %}">{{ post.title }}</a></h2>
+                <p>{{ post.body }}</p><hr>
+            </div>
+        {% endfor %}
+    {% endblock %}
+
+</body>
+</html>
